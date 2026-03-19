@@ -135,7 +135,6 @@ HERO OSINFORLAB START
     align-items: center;
     gap: 80px;
     z-index: 2;
-    width: 100%;
 }
 
 /* IZQUIERDA */
@@ -328,6 +327,10 @@ SECCIÓN 3 - OBJETIVOS START
     background: url('../img/fondo_2.png') center/cover no-repeat;
 }
 
+.objetivos-section .container {
+    width: 90%;
+}
+
 .titulo-objetivos {
     font-size: 42px;
     margin-bottom: 40px;
@@ -351,6 +354,7 @@ SECCIÓN 3 - OBJETIVOS START
     padding: 20px 25px;
     text-align: center;
     border-right: 1px solid rgba(255, 255, 255, 0.15);
+    min-width: 0;
 }
 
 /* Quitar línea del último */
@@ -565,6 +569,57 @@ SCROLL REVEAL ANIMATIONS
 /* =====================================================
 8. RESPONSIVE
 ===================================================== */
+
+/* Desktop grande — colapsa resultado antes de que se rompa */
+@media (max-width: 1500px) {
+
+    .resultado-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .icon-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        justify-items: center;
+    }
+
+    .plus {
+        display: none;
+    }
+
+    .icon-card {
+        width: 100%;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .icon-card h3 {
+        font-size: 20px;
+    }
+
+    .icon-text h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+}
+
+/* Desktop medio — reduce fuentes en objetivos para que quepan los 5 */
+@media (max-width: 1400px) {
+
+    .objetivo h3 {
+        font-size: 24px;
+    }
+
+    .objetivo p {
+        font-size: 16px;
+    }
+
+    .objetivo img {
+        width: 70px;
+    }
+}
 
 /* Tablet landscape */
 @media (max-width: 1200px) {
