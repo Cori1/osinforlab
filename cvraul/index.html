@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Raúl Marca — Ingeniero de Sistemas | Coordinador de Proyectos TI</title>
+<meta name="description" content="Raúl Marca — Ingeniero de Sistemas y Cómputo (CIP 114566), PMP. +8 años en gestión de proyectos TI, gobierno y transformación digital." />
+<meta name="author" content="Raúl Marca" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Raúl Marca — Ingeniero de Sistemas | Coordinador de Proyectos TI" />
+<meta property="og:description" content="+8 años en gestión de proyectos TI con enfoque ágil, gobierno y transformación digital." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #0a0a0b;
+    --bg-soft: #111114;
+    --bg-card: #141417;
+    --border: #232328;
+    --border-soft: #1c1c20;
+    --text: #ededef;
+    --text-dim: #a1a1aa;
+    --text-faint: #6b6b73;
+    --accent: #6ee7b7;          /* verde menta suave */
+    --accent-2: #38bdf8;        /* cian */
+    --accent-glow: rgba(110, 231, 183, 0.14);
+    --radius: 14px;
+    --max: 980px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Fondo decorativo */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(600px circle at 15% 0%, var(--accent-glow), transparent 45%),
+      radial-gradient(700px circle at 100% 10%, rgba(56,189,248,0.08), transparent 45%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  /* ---------- NAV ---------- */
+  header.nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(12px);
+    background: rgba(10,10,11,0.7);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s ease, background .3s ease;
+  }
+  header.nav.scrolled { border-bottom-color: var(--border-soft); }
+  .nav-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand { font-weight: 700; letter-spacing: -0.02em; font-size: 1rem; }
+  .brand span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    font-size: 0.86rem;
+    color: var(--text-dim);
+    transition: color .2s ease;
+    position: relative;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -6px;
+    width: 100%; height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  .nav-toggle { display: none; background: none; border: 0; color: var(--text); cursor: pointer; font-size: 1.4rem; }
+
+  /* ---------- HERO ---------- */
+  .hero { padding: 110px 0 90px; }
+  .hero .tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.8rem; color: var(--accent);
+    border: 1px solid var(--border);
+    background: var(--bg-soft);
+    padding: 6px 14px; border-radius: 999px;
+    margin-bottom: 28px;
+  }
+  .hero .tag .dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 7vw, 4.6rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    margin-bottom: 18px;
+  }
+  .hero h1 .accent {
+    background: linear-gradient(120deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero .role {
+    font-size: clamp(1.05rem, 2.4vw, 1.4rem);
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+  .hero .role .mono { color: var(--accent-2); }
+  .hero p.intro {
+    color: var(--text-dim);
+    max-width: 640px;
+    font-size: 1.02rem;
+    margin-bottom: 36px;
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 12px 22px; border-radius: 10px;
+    font-size: 0.92rem; font-weight: 600;
+    transition: transform .15s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    border: 1px solid var(--border);
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--accent); color: #06281d; border-color: var(--accent); }
+  .btn-primary:hover { box-shadow: 0 8px 30px var(--accent-glow); }
+  .btn-ghost { background: var(--bg-soft); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--text-faint); }
+
+  .socials { display: flex; gap: 18px; margin-top: 34px; }
+  .socials a {
+    color: var(--text-faint);
+    transition: color .2s ease, transform .2s ease;
+    display: inline-flex;
+  }
+  .socials a:hover { color: var(--accent); transform: translateY(-2px); }
+
+  /* ---------- SECTIONS ---------- */
+  section.block { padding: 70px 0; border-top: 1px solid var(--border-soft); }
+  .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 44px; }
+  .sec-head .num { font-size: 0.85rem; color: var(--accent); }
+  .sec-head h2 {
+    font-size: clamp(1.5rem, 4vw, 2.1rem);
+    font-weight: 700; letter-spacing: -0.02em;
+  }
+  .sec-head .line { flex: 1; height: 1px; background: var(--border); }
+
+  /* Sobre mí */
+  .about-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 40px; }
+  .about-grid p { color: var(--text-dim); margin-bottom: 16px; }
+  .about-grid p strong { color: var(--text); font-weight: 600; }
+  .quick-facts {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    align-self: start;
+  }
+  .quick-facts h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-faint); margin-bottom: 16px; }
+  .quick-facts ul { list-style: none; display: grid; gap: 12px; }
+  .quick-facts li { display: flex; gap: 10px; font-size: 0.92rem; color: var(--text-dim); }
+  .quick-facts li b { color: var(--accent); flex-shrink: 0; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px;
+    width: 2px; background: linear-gradient(var(--border), transparent);
+  }
+  .tl-item { position: relative; padding-bottom: 38px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -28px; top: 6px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--accent);
+    box-shadow: 0 0 0 4px rgba(110,231,183,0.08);
+  }
+  .tl-date { font-size: 0.8rem; color: var(--accent-2); margin-bottom: 4px; }
+  .tl-role { font-size: 1.08rem; font-weight: 600; }
+  .tl-org { color: var(--text-dim); font-size: 0.92rem; margin-bottom: 10px; }
+  .tl-item ul { list-style: none; display: grid; gap: 6px; }
+  .tl-item ul li { color: var(--text-faint); font-size: 0.9rem; padding-left: 16px; position: relative; }
+  .tl-item ul li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
+
+  /* Estudios + Certificaciones */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    transition: border-color .25s ease, transform .25s ease;
+  }
+  .card:hover { border-color: var(--text-faint); transform: translateY(-3px); }
+  .edu-item { padding: 14px 0; border-bottom: 1px solid var(--border-soft); }
+  .edu-item:last-child { border-bottom: 0; padding-bottom: 0; }
+  .edu-item:first-child { padding-top: 0; }
+  .edu-title { font-weight: 600; font-size: 0.96rem; }
+  .edu-school { color: var(--text-dim); font-size: 0.88rem; }
+  .edu-date { color: var(--text-faint); font-size: 0.8rem; }
+  .col-title { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-faint); margin-bottom: 16px; }
+
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 9px 14px; border-radius: 10px;
+    font-size: 0.86rem;
+  }
+  .badge b { color: var(--accent); font-weight: 600; }
+
+  /* Skills */
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 9px; }
+  .tag-pill {
+    font-size: 0.85rem; color: var(--text-dim);
+    background: var(--bg-soft); border: 1px solid var(--border);
+    padding: 8px 13px; border-radius: 999px;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .tag-pill:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* Contacto */
+  .contact { text-align: center; padding: 90px 0; }
+  .contact h2 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 18px; }
+  .contact p { color: var(--text-dim); max-width: 520px; margin: 0 auto 32px; }
+  .contact .accent { color: var(--accent); }
+
+  footer { border-top: 1px solid var(--border-soft); padding: 30px 0; }
+  .foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  footer p { color: var(--text-faint); font-size: 0.84rem; }
+
+  /* Reveal animation */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.show { opacity: 1; transform: none; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 820px) {
+    .about-grid, .two-col, .skills-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    .nav-links.open {
+      display: flex; flex-direction: column; gap: 18px;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--bg-soft); border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+    }
+    .hero { padding: 70px 0 60px; }
+    section.block { padding: 55px 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none; opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#inicio" class="brand">Raúl<span>.</span>Marca</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#estudios">Estudios</a>
+      <a href="#skills">Skills</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menú">☰</button>
+  </div>
+</header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="hero wrap" id="inicio">
+    <span class="tag reveal"><span class="dot"></span> Disponible para nuevos proyectos</span>
+    <h1 class="reveal">Hola, soy <span class="accent">Raúl Marca</span></h1>
+    <p class="role reveal">Ingeniero de Sistemas y Cómputo · <span class="mono">Coordinador de Proyectos TI</span></p>
+    <p class="intro reveal">
+      Más de <strong style="color:var(--text)">8 años</strong> de experiencia en gestión de proyectos
+      informáticos con enfoque ágil, en el marco de <strong style="color:var(--text)">gobierno y transformación digital</strong>:
+      implementación de sistemas de información, aplicaciones móviles, analítica de datos,
+      microservicios y seguridad de la información.
+    </p>
+    <div class="cta-row reveal">
+      <a href="#contacto" class="btn btn-primary">
+        Contáctame
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#experiencia" class="btn btn-ghost">Ver experiencia</a>
+    </div>
+    <div class="socials reveal">
+      <a href="https://www.linkedin.com/in/raul-marca/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68zm1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      </a>
+      <a href="mailto:raul.marca@hotmail.com" aria-label="Email">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+      </a>
+      <a href="tel:+51966425691" aria-label="Teléfono">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= SOBRE MÍ ================= -->
+  <section class="block wrap" id="sobre-mi">
+    <div class="sec-head reveal">
+      <span class="num mono">01.</span><h2>Sobre mí</h2><span class="line"></span>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>
+          Soy <strong>Ingeniero de Sistemas y Cómputo colegiado</strong> (CIP 114566) y
+          <strong>PMP</strong>, con una trayectoria enfocada en la gestión de proyectos de
+          tecnologías de la información dentro del sector público peruano.
+        </p>
+        <p>
+          He liderado el desarrollo, implementación, soporte y mantenimiento de sistemas de
+          información aplicando <strong>marcos ágiles</strong> y buenas prácticas, asegurando
+          estándares de calidad y <strong>seguridad de la información</strong> en aplicaciones
+          web, móviles, geoespaciales y cliente/servidor.
+        </p>
+        <p>
+          Mi trabajo se ha centrado en el <strong>gobierno y la transformación digital</strong>,
+          la interoperabilidad, la ciberseguridad y la gobernanza de datos, evaluando soluciones
+          y herramientas tecnológicas disruptivas para entidades del Estado.
+        </p>
+      </div>
+      <aside class="quick-facts reveal">
+        <h3>Datos rápidos</h3>
+        <ul>
+          <li><b>↳</b> +8 años de experiencia en TI</li>
+          <li><b>↳</b> Magíster en Ing. de Software (UNMSM)</li>
+          <li><b>↳</b> PMP — ID 3983382</li>
+          <li><b>↳</b> Scrum Master Certified (SMC)</li>
+          <li><b>↳</b> Representante de COSMIC Sizing en Perú</li>
+          <li><b>↳</b> Lima, Perú</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCIA ================= -->
+  <section class="block wrap" id="experiencia">
+    <div class="sec-head reveal">
+      <span class="num mono">02.</span><h2>Experiencia laboral</h2><span class="line"></span>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-date mono">Octubre 2019 — Actualidad</div>
+        <div class="tl-role">Coordinador de Proyectos</div>
+        <div class="tl-org">OSINFOR · Org. de Supervisión de los Recursos Forestales y de Fauna Silvestre</div>
+        <ul>
+          <li>Gestión de proyectos TI aplicando estándares y buenas prácticas de gobierno y transformación digital.</li>
+          <li>Dirección del desarrollo, implementación, soporte y mantenimiento de sistemas con marcos ágiles.</li>
+          <li>Aseguramiento de calidad y seguridad de la información en aplicaciones web, móviles y geoespaciales.</li>
+          <li>Evaluación de soluciones de interoperabilidad, ciberseguridad y gobernanza de datos.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date mono">Enero 2018 — Setiembre 2019</div>
+        <div class="tl-role">Especialista en Desarrollo de Sistemas</div>
+        <div class="tl-org">APN · Autoridad Portuaria Nacional</div>
+        <ul>
+          <li>Formulación y evaluación de proyectos de TIC (sistemas, BD, arquitectura y servicios digitales).</li>
+          <li>Liderazgo de desarrollos y mantenimientos según NTP 12 207 e ISO 27001.</li>
+          <li>Coordinación de proyectos tecnológicos del sector portuario para su interoperabilidad.</li>
+          <li>Gestión de servicios aplicando prácticas de ITIL.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date mono">Diciembre 2016 — Julio 2017</div>
+        <div class="tl-role">Profesional de Ing. de Sistemas</div>
+        <div class="tl-org">PCM · Presidencia del Consejo de Ministros</div>
+        <ul>
+          <li>Mejoras a sistemas usados en consulados y embajadas a nivel internacional.</li>
+          <li>Análisis de necesidades y control de calidad para nuevos sistemas de información.</li>
+          <li>Subsanación de vulnerabilidades de seguridad de la información.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date mono">Febrero 2015 — Setiembre 2016</div>
+        <div class="tl-role">Documentador Técnico</div>
+        <div class="tl-org">OEFA · Org. de Evaluación y Fiscalización Ambiental</div>
+        <ul>
+          <li>Captura de requerimientos funcionales y no funcionales.</li>
+          <li>Modelamiento de procesos de negocio y documentación técnica.</li>
+          <li>Gestión de cambios y de configuración; pruebas funcionales.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date mono">Octubre 2013 — Enero 2015</div>
+        <div class="tl-role">Gestor de Proyectos Informáticos</div>
+        <div class="tl-org">RREE · Ministerio de Relaciones Exteriores</div>
+        <ul>
+          <li>Planificación, seguimiento y control de proyectos bajo PMBOK y NTP 12207.</li>
+          <li>Revisión de aplicaciones previas al pase a pruebas y producción.</li>
+          <li>Pruebas funcionales y capacitación a usuarios.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date mono">Setiembre 2011 — Noviembre 2013</div>
+        <div class="tl-role">Analista Programador</div>
+        <div class="tl-org">JNE · Jurado Nacional de Elecciones</div>
+        <ul>
+          <li>Análisis de requerimientos para sistemas de procesos electorales.</li>
+          <li>Codificación de sistemas y bases de datos según la metodología del JNE.</li>
+          <li>Atención de incidentes y soporte durante procesos electorales a nivel nacional.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date mono">Octubre 2009 — Agosto 2011</div>
+        <div class="tl-role">Especialista de Sistemas Informáticos</div>
+        <div class="tl-org">DHN · Dirección de Hidrografía y Navegación — Marina de Guerra del Perú</div>
+        <ul>
+          <li>Análisis, desarrollo e implementación de sistemas hidrográficos web.</li>
+          <li>Documentación bajo metodología RUP y pruebas funcionales.</li>
+          <li>Docencia del curso de Excel Avanzado en la escuela de suboficiales.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ESTUDIOS + CERTIFICACIONES ================= -->
+  <section class="block wrap" id="estudios">
+    <div class="sec-head reveal">
+      <span class="num mono">03.</span><h2>Estudios &amp; Certificaciones</h2><span class="line"></span>
+    </div>
+    <div class="two-col">
+      <div class="card reveal">
+        <div class="col-title">Formación académica</div>
+        <div class="edu-item">
+          <div class="edu-title">Magíster en Ing. de Sistemas e Informática — mención Ing. de Software</div>
+          <div class="edu-school">Universidad Nacional Mayor de San Marcos (UNMSM)</div>
+          <div class="edu-date mono">Sep 2015 – Feb 2017</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-title">Estancia de Investigación Internacional</div>
+          <div class="edu-school">Universidad Nacional Autónoma de México — IIMAS</div>
+          <div class="edu-date mono">2018</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-title">Egresado · Maestría en Gobierno y Gestión Pública</div>
+          <div class="edu-school">Instituto de Gobierno y Gestión Pública — USMP</div>
+          <div class="edu-date mono">Abr 2022 – Mar 2023</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-title">Ingeniero de Sistemas y Cómputo</div>
+          <div class="edu-school">Universidad Inca Garcilaso de la Vega (UIGV)</div>
+          <div class="edu-date mono">2009</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-title">PDG en Gestión de Proyectos</div>
+          <div class="edu-school">Universidad San Ignacio de Loyola (USIL)</div>
+          <div class="edu-date mono">Jul 2014 – Mar 2015</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-title">Especialización en Ing. de Software <span style="color:var(--accent)">· 2do puesto</span></div>
+          <div class="edu-school">Pontificia Universidad Católica del Perú (PUCP)</div>
+          <div class="edu-date mono">Abr 2012 – Sep 2012</div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="card" style="margin-bottom:24px">
+          <div class="col-title">Certificaciones</div>
+          <div class="badges">
+            <span class="badge"><b>PMP</b> ID 3983382</span>
+            <span class="badge"><b>CIP</b> 114566</span>
+            <span class="badge">Scrum Master Certified <b>(SMC)</b></span>
+            <span class="badge">Scrum Developer Certified <b>(SDC)</b></span>
+            <span class="badge">Scrum Fundamental Certified <b>(SFC)</b></span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="col-title">Reconocimiento internacional</div>
+          <p style="color:var(--text-dim); font-size:0.92rem; margin-bottom:12px">
+            <strong style="color:var(--text)">Representante internacional de COSMIC Sizing en Perú</strong>
+          </p>
+          <a href="https://cosmicsizing.org/organization/local/peru/" target="_blank" rel="noopener" class="badge" style="cursor:pointer">
+            cosmicsizing.org/peru
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section class="block wrap" id="skills">
+    <div class="sec-head reveal">
+      <span class="num mono">04.</span><h2>Skills &amp; Capacidades</h2><span class="line"></span>
+    </div>
+    <div class="skills-grid">
+      <div class="reveal">
+        <div class="col-title">Gestión &amp; Metodologías</div>
+        <div class="tags">
+          <span class="tag-pill">Gobierno y Transformación Digital</span>
+          <span class="tag-pill">Gestión de Proyectos (PMBOK)</span>
+          <span class="tag-pill">SCRUM</span>
+          <span class="tag-pill">SCRUM + CMMI + PMBOK</span>
+          <span class="tag-pill">ITIL 4</span>
+          <span class="tag-pill">Gestión por Procesos</span>
+          <span class="tag-pill">Rediseño de Procesos</span>
+          <span class="tag-pill">Ciclo de Vida del Software</span>
+          <span class="tag-pill">Diseño de Pruebas de Software</span>
+          <span class="tag-pill">Seguridad de la Información · ISO 27001</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="col-title">Tecnologías &amp; Herramientas</div>
+        <div class="tags">
+          <span class="tag-pill">Cloud · Azure &amp; AWS</span>
+          <span class="tag-pill">.NET Developer</span>
+          <span class="tag-pill">Oracle Database 12c</span>
+          <span class="tag-pill">Oracle Backup &amp; Recovery</span>
+          <span class="tag-pill">Microservicios</span>
+          <span class="tag-pill">Analítica de Datos</span>
+          <span class="tag-pill">Apps Móviles</span>
+          <span class="tag-pill">Geoespacial</span>
+          <span class="tag-pill">MS Project</span>
+          <span class="tag-pill">Excel Avanzado</span>
+        </div>
+        <div class="col-title" style="margin-top:26px">Idiomas</div>
+        <div class="tags">
+          <span class="tag-pill">Español · Nativo</span>
+          <span class="tag-pill">Inglés · Intermedio</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACTO ================= -->
+  <section class="contact wrap" id="contacto">
+    <div class="reveal">
+      <span class="num mono accent">05. ¿Hablamos?</span>
+      <h2>Construyamos algo juntos</h2>
+      <p>
+        ¿Tienes un proyecto de transformación digital, gestión TI o implementación de sistemas?
+        Estoy abierto a nuevas oportunidades y colaboraciones.
+      </p>
+      <div class="cta-row" style="justify-content:center">
+        <a href="mailto:raul.marca@hotmail.com" class="btn btn-primary">
+          raul.marca@hotmail.com
+        </a>
+        <a href="https://wa.me/51966425691" target="_blank" rel="noopener" class="btn btn-ghost">
+          WhatsApp · +51 966 425 691
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <p>© <span id="year"></span> Raúl Marca · Ingeniero de Sistemas y Cómputo</p>
+    <p class="mono">Diseñado &amp; desarrollado con ☕</p>
+  </div>
+</footer>
+
+<script>
+  // Año dinámico
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Nav: borde al hacer scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Menú móvil
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // Reveal al hacer scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Nav activo según sección visible
+  const sections = [...document.querySelectorAll('main section[id]')];
+  const navAnchors = [...document.querySelectorAll('.nav-links a')];
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => spy.observe(s));
+</script>
+</body>
+</html>
